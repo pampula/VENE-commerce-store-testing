@@ -1,5 +1,6 @@
 import chai from 'chai';
 import add from '../src/add.js';
+
 var expect = chai.expect;
 
 describe('add', () => {
