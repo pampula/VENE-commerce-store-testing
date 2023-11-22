@@ -24,6 +24,14 @@ describe('isEmpty', () => {
         expect(isEmpty({ 'a': 1 })).to.equal(false);
     });
 
+    it('should return false for non-empty maps and sets', () => {
+        const nonEmptyMap = new Map([['key', 'value']]);
+        const nonEmptySet = new Set([1, 2, 3]);
+        
+        expect(isEmpty(nonEmptyMap)).to.equal(false);
+        expect(isEmpty(nonEmptySet)).to.equal(false);
+        });
+
     it('should return true for empty arrays and array-like objects', () => {
         expect(isEmpty([])).to.equal(true);
     });
