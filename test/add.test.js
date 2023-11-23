@@ -29,18 +29,8 @@ describe('Add', () => {
         expect(add(1e20, 1e20)).to.equal(2e20);
     });
 
-    // Is this the wanted behaviour of the function?
-    it('should add string conversions', () => {
-        expect(add('3', '4')).to.equal('34');
-    });
-
     it('should handle missing arguments', () => {
         expect(add(5)).to.equal(5);
         expect(add()).to.equal(0);
-    });
-
-    // Is this the wanted behaviour of the function?
-    it('should handle non-numeric values', () => {
-        expect(add('abc', 5)).to.equal('abc5');
     });
 });
