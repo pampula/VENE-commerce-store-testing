@@ -8,11 +8,13 @@
   },
   "type": "module",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "coverage": "c8 --exclude \"src/.internal/*.js\" --exclude \"test/*.js\" --exclude \"src/isArguments.js\" --exclude \"src/isArrayLike.js\" --exclude \"src/isBuffer.js\" --exclude \"src/isLength.js\" --exclude \"src/isObject.js\" --exclude \"src/isObjectLike.js\" --exclude \"src/isSymbol.js\" --exclude \"src/isTypedArray.js\" mocha"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "c8": "^8.0.1",
     "chai": "^4.3.10",
     "mocha": "^10.2.0"
   }
