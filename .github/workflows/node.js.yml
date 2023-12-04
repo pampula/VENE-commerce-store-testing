@@ -24,23 +24,14 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm test
-    - run: npm run coverage
-    - name: Convert coverage report to LCOV
-      run: |
-        npm install -g lcov-result-merger
-        lcov-result-merger 'coverage/*/lcov-report/*.info' > lcov.info
+    - run: npm install --no-save nyc
+    - run: npx nyc --reporter=lcov npm test
 
     - name: Debug lcov.info contents
-      run: cat lcov.info
-
-    - name: Upload coverage as artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: coverage
-        path: lcov.info
+      run: cat coverage/lcov.info
           
     - name: Coveralls
       uses: coverallsapp/github-action@v2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: lcov.info
+        path-to-lcov: coverage/lcov.info
