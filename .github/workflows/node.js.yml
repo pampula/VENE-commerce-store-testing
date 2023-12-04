@@ -29,7 +29,15 @@ jobs:
       run: |
         npm install -g lcov-result-merger
         lcov-result-merger 'coverage/*/lcov-report/*.info' > lcov.info
+
+    - name: Upload coverage as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage
+        path: lcov.info
+          
     - name: Coveralls
       uses: coverallsapp/github-action@v2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: lcov.info
