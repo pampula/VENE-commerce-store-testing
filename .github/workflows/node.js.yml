@@ -25,6 +25,10 @@ jobs:
     - run: npm install
     - run: npm test
     - run: npm run coverage
+    - name: Convert coverage report to LCOV
+      run: |
+        npm install -g lcov-result-merger
+        lcov-result-merger 'coverage/*/lcov-report/*.info' > lcov.info
     - name: Coveralls
       uses: coverallsapp/github-action@v2
       with:
