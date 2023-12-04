@@ -8,30 +8,14 @@
   },
   "type": "module",
   "scripts": {
-    "test": "nyc mocha",
+    "test": "mocha",
     "coverage": "c8 --exclude \"src/.internal/*.js\" --exclude \"test/*.js\" mocha"
-  },
-  "nyc": {
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "all": true,
-    "extension": [
-      ".js"
-    ],
-    "exclude": [
-      "test/*.js",
-      "src/.internal/*.js",
-      "coverage/lcov-report/*.js"
-    ]
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "c8": "^8.0.1",
     "chai": "^4.3.10",
-    "mocha": "^10.2.0",
-    "nyc": "^15.1.0"
+    "mocha": "^10.2.0"
   }
 }
