@@ -22,13 +22,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install
-    - run: npm test
+
     - run: npm install --no-save nyc
     - run: npx nyc --reporter=lcov npm test
 
     - name: Debug lcov.info contents
       run: cat coverage/lcov.info
+
+    - name: Install dependencies and run tests
+      run: |
+        npm install
+        npm test
           
     - name: Coveralls
       uses: coverallsapp/github-action@v2
