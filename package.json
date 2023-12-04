@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "test": "mocha",
-    "coverage": "c8 --exclude \"src/.internal/*.js\" --exclude \"test/*.js\" --exclude \"src/isArguments.js\" --exclude \"src/isArrayLike.js\" --exclude \"src/isBuffer.js\" --exclude \"src/isLength.js\" --exclude \"src/isObject.js\" --exclude \"src/isObjectLike.js\" --exclude \"src/isSymbol.js\" --exclude \"src/isTypedArray.js\" mocha"
+    "coverage": "c8 --exclude \"src/.internal/*.js\" --exclude \"test/*.js\" mocha"
   },
   "author": "",
   "license": "MIT",
