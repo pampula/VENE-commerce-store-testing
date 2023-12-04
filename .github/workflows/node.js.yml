@@ -30,6 +30,9 @@ jobs:
         npm install -g lcov-result-merger
         lcov-result-merger 'coverage/*/lcov-report/*.info' > lcov.info
 
+    - name: Debug lcov.info contents
+      run: cat lcov.info
+
     - name: Upload coverage as artifact
       uses: actions/upload-artifact@v2
       with:
