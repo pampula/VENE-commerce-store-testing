@@ -42,7 +42,7 @@ describe('toNumber', () => {
 
     it('should convert valid hexadecimal string to a number', () => {
         expect(toNumber('0xA')).to.equal(10);
-        //expect(toNumber('-A')).to.equal(-10);
+        expect(toNumber('-A')).to.equal(-10);
     });
 
     it('should handle bad hexadecimal string and return NaN', () => {

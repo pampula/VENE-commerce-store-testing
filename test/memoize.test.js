@@ -22,6 +22,9 @@ describe('memoize', () => {
     // Call with a different argument should invoke the original function.
     expect(memoizedFunction(10)).to.equal(20);
     expect(callCount).to.equal(2);
+
+    // Ensure the cache property is correctly exposed
+    expect(memoizedFunction.cache).to.be.an.instanceOf(Map);
   });
 
   it('should use the resolver function to determine the cache key', () => {
@@ -45,6 +48,9 @@ describe('memoize', () => {
     // Call with a different resolver value should invoke the original function.
     expect(memoizedFunction(8)).to.equal(16);
     expect(callCount).to.equal(2);
+
+    // Ensure the cache property is correctly exposed
+    expect(memoizedFunction.cache).to.be.an.instanceOf(Map);
   });
 
   it('should throw an error if not provided a function', () => {
@@ -69,6 +75,7 @@ describe('memoize', () => {
 
     const memoizedFunction = memoize(() => {});
 
+    // Ensure the cache property is correctly exposed
     expect(memoizedFunction.cache).to.be.an.instanceOf(customCacheConstructor);
   });
 });

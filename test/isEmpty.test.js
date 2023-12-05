@@ -53,4 +53,15 @@ describe('isEmpty', () => {
         const emptyObjectWithPrototype = Object.create({ prototypeProperty: 'value' });
         expect(isEmpty(emptyObjectWithPrototype)).to.equal(true);
     });
+
+    it('should return true for objects with prototype properties but no own properties', () => {
+        const objWithPrototype = Object.create({ prototypeProperty: 'value' });
+        expect(isEmpty(objWithPrototype)).to.equal(true);
+    });
+
+    it('should return false for objects with both prototype and own properties', () => {
+        const objWithProperties = { ownProperty: 'value' };
+        objWithProperties.__proto__ = { prototypeProperty: 'value' };
+        expect(isEmpty(objWithProperties)).to.equal(false);
+    });
 });

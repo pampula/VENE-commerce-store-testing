@@ -13,7 +13,7 @@ describe('defaultTo', () => {
     it('should return the default value if value is NaN, null, or undefined', () => {
         expect(defaultTo(undefined, 10)).to.equal(10);
         expect(defaultTo(null, 'default')).to.equal('default');
-        //expect(defaultTo(NaN, 'fallback')).to.equal('fallback');
+        expect(defaultTo(NaN, 'fallback')).to.equal('fallback');
         expect(defaultTo(undefined, null)).to.equal(null);
     });
 
